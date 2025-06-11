@@ -8,6 +8,14 @@ body{
   min-height:100vh;
   background-attachment: fixed;
 }
+@media (max-width: 600px) {
+  body {
+    background-position: top center;
+    background-size:cover; 
+    background-repeat:repeat;
+    background-attachment: fixed;
+  }
+}
 .navbar{
   margin:0;
   border:2px solid rgba(0, 0, 0, 0.841);
@@ -15,18 +23,9 @@ body{
   height:3rem;
   display:flex;
   justify-content: space-between;
-  flex:1;
   align-items: center;
   padding-right: 15px;
-  position:fixed;
-}
-.searchbar{
-  height:90%;
-  border:1px solid rgba(0, 0, 0, 0.855);
-  border-radius:1%;
-  width:50%;
-  font-size: 100%;
-  padding: 0 10px;
+  position:relative;
 }
 .homebutton{
   height:90%;
@@ -40,4 +39,75 @@ body{
 .notificationsbutton{
   height:90%;
   width:10%;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  height: 90%;
+  width: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.855);
+  border-radius: 4px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.searchbar {
+  flex: 1;
+  border: none;
+  font-size: 100%;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.search-icon {
+  padding: 0px 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border:2px solid black;
+
+}
+
+.search-icon i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .homebutton,
+  .activities-page-button {
+    width: 25%;
+  }
+  .search-container {
+    width: 40%;
+  }
+  .notificationsbutton {
+    width: 10%;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    align-items: stretch;
+  }
+
+  .homebutton,
+  .activities-page-button,
+  .search-container,
+  .notificationsbutton {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .searchbar {
+    font-size: 90%;
+  }
+
+  .search-icon i {
+    font-size: 1.5rem;
+  }
 }
