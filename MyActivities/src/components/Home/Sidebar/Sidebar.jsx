@@ -15,6 +15,10 @@ function Sidebar() {
         navigate('/');
         toggleSidebar();
     }
+    const handleNewsButton = () => {
+        navigate('/news');
+        togglesSidebar();
+    }
 
     return (
         <div className="sidebar-container">
@@ -36,8 +40,8 @@ function Sidebar() {
                 <ul className="menu-list">
                     <li onClick={handleHomeButton}>Home</li>
                     <li onClick={handleMyActivityButton}>My Activities</li>
+                    <li onClick={handleNewsButton}>News</li>
                     <li>Games Corner</li>
-                    <li>News</li>
                     <li>Movies</li>
                 </ul>
             </div>

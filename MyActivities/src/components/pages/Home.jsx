@@ -1,10 +1,10 @@
-import Sidebar from '../Home/Sidebar/Sidebar.jsx'
 import Header from '../Home/Header'
+import Body from '../Home/Body/Body.jsx'
 function Home() {
     return (
         <>
             <Header />
-            <Sidebar />
+            <Body />
         </>
     )
 }
