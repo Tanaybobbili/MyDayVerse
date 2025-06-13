@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Calendar from 'react-calendar';
+import {setItem,getItem} from '../../utils/localStorage.js'
 import 'react-calendar/dist/Calendar.css';
 import './Calendarpage.css';
 
@@ -12,6 +13,7 @@ function Calendarpage() {
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
+  
 
   const handleMessageChange = (e) => {
     setMessage(e.target.value);
@@ -28,7 +30,9 @@ function Calendarpage() {
       time,
       detail: message
     };
-    setActivities([...activities, newActivity]);
+    const updatedActivities = [...activities, newActivity];
+    setActivities(updatedActivities);
+    setItem('activities', updatedActivities);
     setMessage('');
     setTime('');
   };

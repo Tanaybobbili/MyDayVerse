@@ -1,0 +1,75 @@
+.activities-main {
+  padding: 50px;
+  width: 100vw;
+  min-height: 100vh;
+  background: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.activities-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.reset-button {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.reset-button:hover {
+  background-color: #d93636;
+}
+
+.activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.activity-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+.activity-card:hover {
+  transform: translateY(-2px);
+}
+
+.activity-info {
+  text-align: left;
+}
+.activity-info p {
+  margin: 4px 0;
+}
+
+.delete-button {
+  background-color: #ffa500;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.delete-button:hover {
+  background-color: #e69500;
+}
+
+.no-activities {
+  margin-top: 30px;
+  color: #888;
+  font-size: 1.1rem;
+}
