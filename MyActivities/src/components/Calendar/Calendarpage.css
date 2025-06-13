@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e0e0e0;
+}
+
+.page-container {
+  display: flex;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 30px;
+}
+
+.calendar-section {
+  flex: 1;
+  max-width: 50%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.activity-section {
+  flex: 1;
+  max-width: 50%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.activity-input,
+.time-input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.activity-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.activity-button:hover {
+  background-color: #005fcc;
+}
+
+.activity-list {
+  margin-top: 20px;
+}
+
+.activity-list ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.activity-list li {
+  margin-bottom: 10px;
+}
+.activity-section p,
+.activity-section label,
+.activity-section input,
+.activity-section textarea,
+.activity-section button {
+  margin-top: 12px;
+}
+
+

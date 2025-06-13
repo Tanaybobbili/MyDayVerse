@@ -39,7 +39,7 @@ function Navbar() {
                 <button className="homebutton" onClick={() => navigate('/')}>
                     Home
                 </button>
-                <button className = "calendar-button">Calendar</button>
+                <button className = "calendar-button" onClick={()=>navigate('/mycalendar')}>Calendar</button>
                 <button className="activities-page-button" onClick={() => navigate('/myactivities')}>
                     My Activity List
                 </button>
