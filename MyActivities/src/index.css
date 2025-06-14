@@ -77,11 +77,7 @@ body{
   flex: 0 0 auto;
 }
 
-.notificationsbutton {
-  height: 90%;
-  padding: 0 10px;
-  width:auto;
-}
+
 .homebutton,
 .calendar-button,
 .activities-page-button,
@@ -152,8 +148,7 @@ body{
 
   .homebutton,
   .activities-page-button,
-  .search-container,
-  .notificationsbutton {
+  .search-container {
     width: 100%;
     margin-bottom: 0.5rem;
   }
@@ -166,3 +161,131 @@ body{
     font-size: 1.5rem;
   }
 }
+.notification-container {
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  height:90%;
+}
+.notificationsbutton {
+  background-color: #000;
+  height: 90%;
+  flex: 1 1 0;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.notification-text {
+  margin-left: 4px;
+}
+
+.notification-badge {
+  background-color: red;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0 6px;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+
+.notification-popup {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 9999;
+  width: 320px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 14px 12px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.clear-all {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.notification-list {
+  max-height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.notification-item span {
+  flex-grow: 1;
+  margin-right: 12px;
+  word-break: break-word;
+}
+
+.notification-item button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  min-width: 40px;
+  transition: background-color 0.2s;
+}
+
+.notification-item button:hover {
+  background-color: #ddd;
+}
+
+.notification-item.expired {
+  background-color: #e74c3c;
+}
+
+.notification-item.active {
+  background-color: #27ae60;
+}
+
+.no-notify {
+  font-size: 0.9rem;
+  color: #666;
+  padding-left: 5px;
+}
+@media (max-width: 600px){
+  .notification-popup {
+  width: 90%;
+  right: 5%;
+  top: 70px;
+}
+}
+
+

@@ -5,10 +5,13 @@
     padding: 1rem;
     width: 100%;
     min-height: 100vh;
+    position: relative; /* important: don’t let it go over fixed/absolute popups */
+    z-index: 1;
 }
 .sidebar{
     color:aqua;
     top:0px;
+    z-index: 999;
 }
 .time{
     font-size:5rem;

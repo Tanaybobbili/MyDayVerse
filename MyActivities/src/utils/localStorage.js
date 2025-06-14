@@ -18,3 +18,7 @@ export const removeItem = (key) => {
 export const clearStorage = () => {
   localStorage.clear();
 };
+
+if (!getItem('notifications')) {
+  setItem('notifications', []);
+}

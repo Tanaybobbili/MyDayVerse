@@ -1,4 +1,4 @@
-import Navbar from './Header/Navbar.jsx'
+import Navbar from './Header/Navbar.jsx';
 function Header(){
     return (
         <>
