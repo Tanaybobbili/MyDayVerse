@@ -3,6 +3,7 @@ import MyActivities from './components/pages/MyActivities.jsx'
 import Newspage from './components/pages/Newspage.jsx';
 import {Routes,Route} from 'react-router-dom';
 import MyCalendar from './components/pages/MyCalendar.jsx'
+import Moviespage from './components/pages/Moviespage.jsx';
 function App() {
   return (
   <>
@@ -11,6 +12,7 @@ function App() {
       <Route path='/myactivities' element={<MyActivities />} />
       <Route path='/news' element={<Newspage />}/>
       <Route path='/mycalendar' element={<MyCalendar />} />
+      <Route path='/movies' element={<Moviespage />} />
     </Routes>
   </>)
 }

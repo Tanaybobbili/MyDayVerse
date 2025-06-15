@@ -20,7 +20,7 @@ function Sidebar({ isOpen, toggleSidebar, navigate }) {
                 <li onClick={() => handleNav('/myactivities')}>My Activities</li>
                 <li onClick={() => handleNav('/news')}>News</li>
                 <li>Games Corner</li>
-                <li>Movies</li>
+                <li onClick={() => handleNav('/movies')}>Movies</li>
             </ul>
         </div>
     );
