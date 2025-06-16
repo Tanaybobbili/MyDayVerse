@@ -1,0 +1,41 @@
+.ttt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.ttt-cell {
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  border: 2px solid #444;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ttt-cell:hover {
+  background-color: #f0f0f0;
+}
+
+.ttt-restart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #4e73df;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

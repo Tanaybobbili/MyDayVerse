@@ -19,6 +19,11 @@ export const clearStorage = () => {
   localStorage.clear();
 };
 
+
 if (!getItem('notifications')) {
   setItem('notifications', []);
+}
+
+if (!getItem('highScore')) {
+  setItem('highScore', 0);
 }

@@ -39,7 +39,7 @@ body{
   padding-left: 10px;
   position: relative; 
   gap:10px;
-  background-color: rgb(56, 57, 47);
+  background-color: #004D61;
   overflow:hidden;
 }
 .navbar button {
@@ -47,7 +47,7 @@ body{
   flex: 1 1 0;
   padding: 0 5px;
   height: 90%;
-  background-color: #a3a3da;
+  background-color: #b1fc83;
   font-weight: bold;
   font-size: 1rem;
   white-space: nowrap; 

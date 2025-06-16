@@ -1,0 +1,40 @@
+.memory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.memory-card {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  border: 2px solid #666;
+  font-size: 32px;
+  text-align: center;
+  line-height: 80px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-radius: 10px;
+}
+
+.memory-card.flipped {
+  background-color: #f9f9f9;
+}
+
+.memory-restart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #4e73df;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}

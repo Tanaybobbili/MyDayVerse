@@ -7,7 +7,7 @@ function Movies() {
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=564a44e86c93022be7795807248d6c86&language=en-US&page=1`)
       .then(res => res.json())
-      .then(data => setMovies(data.results.slice(0, 30)));
+      .then(data => setMovies(data.results.slice(0, 50)));
   }, []);
 
   return (
