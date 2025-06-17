@@ -29,9 +29,9 @@
 }
 
 .game-screen {
-  width: 80%;
-  max-width: 1000px;
-  height: 500px;
+  width: 95%;
+  max-width: 1200px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   border: 2px solid #ccc;

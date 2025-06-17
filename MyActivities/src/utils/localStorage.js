@@ -27,3 +27,6 @@ if (!getItem('notifications')) {
 if (!getItem('highScore')) {
   setItem('highScore', 0);
 }
+if (!getItem('memoryGameBestScore')) {
+  setItem('memoryGameBestScore', Number.MAX_SAFE_INTEGER);
+}

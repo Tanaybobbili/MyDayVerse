@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
+import { getItem, setItem } from '../../utils/localStorage';
 import './MemoryGame.css';
 
 const generateCards = () => {
-  const emojis = ['🍎', '🍌', '🍇', '🍒', '🍍', '🥝'];
+  const emojis = ['🍎', '🍌', '🍇', '🍒', '🍍', '🥝', '🍉', '🍑', '🍊', '🍓'];
   const doubled = [...emojis, ...emojis];
   return doubled
     .sort(() => 0.5 - Math.random())
@@ -15,9 +16,15 @@ const generateCards = () => {
 };
 
 function MemoryGame() {
+  const initialBest = getItem('memoryGameBestScore');
   const [cards, setCards] = useState(generateCards);
   const [flippedIndices, setFlippedIndices] = useState([]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(
+    typeof initialBest === 'number' ? initialBest : Number.MAX_SAFE_INTEGER
+  );
 
+  // Handle card match checking
   useEffect(() => {
     if (flippedIndices.length === 2) {
       const [first, second] = flippedIndices;
@@ -34,10 +41,21 @@ function MemoryGame() {
           );
           setCards(newCards);
           setFlippedIndices([]);
-        }, 1000);
+        }, 500);
       }
     }
   }, [flippedIndices, cards]);
+
+  // ✅ Check if all cards matched (game finished)
+  useEffect(() => {
+    const allMatched = cards.every((card) => card.matched);
+    if (allMatched && cards.length > 0) {
+      if (score < bestScore) {
+        setItem('memoryGameBestScore', score);
+        setBestScore(score);
+      }
+    }
+  }, [cards, score, bestScore]);
 
   const handleClick = (index) => {
     if (flippedIndices.length === 2 || cards[index].flipped || cards[index].matched) return;
@@ -46,17 +64,34 @@ function MemoryGame() {
     newCards[index].flipped = true;
     setCards(newCards);
     setFlippedIndices((prev) => [...prev, index]);
+    setScore((prev) => prev + 1);
   };
 
   const resetGame = () => {
     setCards(generateCards());
     setFlippedIndices([]);
+    setScore(0);
+  };
+
+  const newGame = () => {
+    setCards(generateCards());
+    setFlippedIndices([]);
+    setScore(0);
+  };
+
+  const resetHighScore = () => {
+    setItem('memoryGameBestScore', Number.MAX_SAFE_INTEGER);
+    setBestScore(Number.MAX_SAFE_INTEGER);
   };
 
   return (
     <div className="memory-container">
       <h2>Memory Match</h2>
-      <div className="memory-grid">
+      <div className="scoreboard">
+        <span>Score: {score}</span>
+        <span>Best Score: {bestScore === Number.MAX_SAFE_INTEGER ? '-' : bestScore}</span>
+      </div>
+      <div className="memory-grid large">
         {cards.map((card, index) => (
           <div
             key={card.id}
@@ -67,7 +102,11 @@ function MemoryGame() {
           </div>
         ))}
       </div>
-      <button className="memory-restart" onClick={resetGame}>Restart</button>
+      <div className="button-group">
+        <button className="memory-restart" onClick={resetGame}>Restart</button>
+        <button className="memory-restart" onClick={newGame}>New Game</button>
+        <button className="memory-restart" onClick={resetHighScore}>Reset High Score</button>
+      </div>
     </div>
   );
 }
