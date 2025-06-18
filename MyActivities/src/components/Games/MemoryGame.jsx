@@ -24,7 +24,6 @@ function MemoryGame() {
     typeof initialBest === 'number' ? initialBest : Number.MAX_SAFE_INTEGER
   );
 
-  // Handle card match checking
   useEffect(() => {
     if (flippedIndices.length === 2) {
       const [first, second] = flippedIndices;
