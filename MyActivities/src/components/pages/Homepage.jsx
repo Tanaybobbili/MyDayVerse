@@ -1,5 +1,5 @@
-import Header from '../Home/Header'
-import Body from '../Home/Body/Body.jsx'
+import Header from '../Home/Header.jsx'
+import Body from '../Home/Body/Home.jsx'
 function Home() {
     return (
         <>

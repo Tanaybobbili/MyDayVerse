@@ -31,3 +31,17 @@ if (!getItem('highScore')) {
 if (!getItem('memoryGameBestScore')) {
   setItem('memoryGameBestScore', Number.MAX_SAFE_INTEGER);
 }
+
+// Sample test activity (optional)
+if (!getItem('activities')) {
+  const now = new Date();
+  const oneHourLater = new Date(now.getTime() + 60 * 60 * 1000); // 1 hour later
+
+  setItem('activities', [
+    {
+      detail: "Demo Activity - 1 hour later",
+      date: oneHourLater.toISOString().split('T')[0],
+      time: oneHourLater.toTimeString().slice(0, 5) // HH:mm
+    }
+  ]);
+}

@@ -1,30 +1,60 @@
 .activities-main {
-  padding: 50px;
-  width: 100vw;
+  padding: 30px 20px;
+  background: linear-gradient(to right, #f1f1f1, #e2e6ea);
   min-height: 100vh;
-  background: #f9f9f9;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .activities-container {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.activities-container h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
   text-align: center;
+  color: #2c3e50;
+}
+
+.live-clock {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.activities-search {
+  display: block;
+  margin: 0 auto 20px auto;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .reset-button {
-  padding: 10px 20px;
-  margin-bottom: 20px;
   background-color: #ff4d4d;
   color: white;
+  padding: 10px 20px;
+  font-size: 16px;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
+  margin: 0 auto 25px auto;
+  display: block;
   transition: background-color 0.3s ease;
 }
+
 .reset-button:hover {
-  background-color: #d93636;
+  background-color: #e60000;
 }
 
 .activities-list {
@@ -34,60 +64,42 @@
 }
 
 .activity-card {
+  background-color: #fefefe;
+  padding: 15px 20px;
+  border-left: 5px solid #4e73df;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s;
-}
-.activity-card:hover {
-  transform: translateY(-2px);
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.activity-info {
-  text-align: left;
-}
 .activity-info p {
-  margin: 4px 0;
+  margin: 5px 0;
+  font-size: 15px;
+  color: #333;
 }
 
 .delete-button {
-  background-color: #ffa500;
-  border: none;
+  background-color: #dc3545;
   color: white;
   padding: 8px 14px;
+  font-size: 14px;
+  border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
   transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
+
 .delete-button:hover {
-  background-color: #e69500;
+  background-color: #c82333;
 }
 
 .no-activities {
-  margin-top: 30px;
+  text-align: center;
+  font-size: 18px;
   color: #888;
-  font-size: 1.1rem;
-}
-.live-clock {
-  font-size: 3rem;
-  font-weight: 500;
-  color: #333;
-  background-color: #e6f0ff;
-  padding: 10px 15px;
-  border-radius: 8px;
-  width: fit-content;
-  margin: 0 auto 20px auto;
-  margin-top:20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-  border:5px solid rgba(162, 158, 158, 0.397);
-}
-
-.live-clock:hover {
-  background-color: #d0e4ff;
+  margin-top: 40px;
 }

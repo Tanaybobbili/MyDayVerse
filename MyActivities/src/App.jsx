@@ -1,4 +1,4 @@
-import Home from './components/pages/Home.jsx';
+import Home from './components/pages/Homepage.jsx';
 import MyActivities from './components/pages/MyActivities.jsx'
 import Newspage from './components/pages/Newspage.jsx';
 import {Routes,Route} from 'react-router-dom';

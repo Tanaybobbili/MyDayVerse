@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 function Activities() {
   const [activities, setActivities] = useState(getItem('activities') || []);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Live clock
   useEffect(() => {
@@ -50,7 +51,7 @@ function Activities() {
       }
 
       setItem('notifications', updatedNotifications);
-    }, 1000); // Every second
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [activities]);
@@ -67,6 +68,12 @@ function Activities() {
     setItem('activities', updated);
   };
 
+  const filteredActivities = activities.filter((activity) =>
+    activity.date.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    activity.time.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    activity.detail.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <main className="activities-main">
       <div className="activities-container">
@@ -76,11 +83,19 @@ function Activities() {
           <p>{currentTime.toLocaleTimeString()}</p>
         </div>
 
+        <input
+          type="text"
+          className="activities-search"
+          placeholder="Search activities..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
         <button className="reset-button" onClick={handleReset}>Reset All</button>
 
-        {activities.length > 0 ? (
+        {filteredActivities.length > 0 ? (
           <div className="activities-list">
-            {activities.map((activity, index) => (
+            {filteredActivities.map((activity, index) => (
               <div key={index} className="activity-card">
                 <div className="activity-info">
                   <p><strong>Date:</strong> {activity.date}</p>
@@ -92,7 +107,7 @@ function Activities() {
             ))}
           </div>
         ) : (
-          <p className="no-activities">No activities available</p>
+          <p className="no-activities">No activities found.</p>
         )}
       </div>
     </main>
