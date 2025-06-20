@@ -96,7 +96,7 @@ function Navbar() {
                     </label>
                 </div>
 
-                <button className="tobedecided">Yet not know</button>
+                <button className="gamesbutton" onClick = {() => navigate('/games')}>Games</button>
 
                 <div className="notification-container">
                     <button className="notificationsbutton" onClick={() => setIsPopupOpen(!isPopupOpen)}>

@@ -69,7 +69,7 @@ body{
   padding:0%;
 }
 .calendar-button,
-.tobedecided,
+.gamesbutton,
 .homebutton,
 .activities-page-button {
   height: 90%;
@@ -81,7 +81,7 @@ body{
 .homebutton,
 .calendar-button,
 .activities-page-button,
-.tobedecided,
+.gamesbutton,
 .notificationsbutton {
   flex: 1 1 0;
 }
