@@ -1,7 +1,6 @@
 .dashboard-container {
   padding: 40px 20px;
   min-height: 100vh;
-  background: linear-gradient(to right, #dbeafe, #f0fdfa);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +14,7 @@
   backdrop-filter: blur(8px);
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, color 0.3s;
 }
 
 .clock-time {
@@ -31,6 +31,7 @@
   color: #333;
   text-align: center;
   margin-bottom: 20px;
+  transition: color 0.3s;
 }
 
 .dashboard-widgets {
@@ -49,7 +50,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 250px;
   text-align: center;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background 0.3s, color 0.3s;
 }
 
 .widget:hover {
@@ -60,8 +61,10 @@
   font-size: 1.1rem;
   color: #333;
   margin-top: 10px;
+  transition: color 0.3s;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .dashboard-widgets {
     flex-direction: column;
@@ -75,4 +78,28 @@
   .clock-time {
     font-size: 2.5rem;
   }
+}
+
+/* ========== DARK MODE OVERRIDES ========== */
+body.dark-mode .top-clock-widget {
+  background: rgba(30, 41, 59, 0.7);
+  color: #f1f5f9;
+}
+
+body.dark-mode .clock-time {
+  color: #facc15; /* amber-400 */
+}
+
+body.dark-mode .dashboard-title {
+  color: #f8fafc;
+}
+
+body.dark-mode .widget {
+  background: #1e293b;
+  color: #e2e8f0;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .stats-widget p {
+  color: #e5e7eb;
 }

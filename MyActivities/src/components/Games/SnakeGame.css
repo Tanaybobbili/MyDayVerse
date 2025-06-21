@@ -1,59 +1,89 @@
+:root {
+  --snake-head: #31ff13;
+  --snake-body: #1c4b52;
+  --food-color: #ff4d4d;
+  --canvas-bg: #ffffff;
+  --text-color: #000;
+  --button-bg: #4caf50;
+  --button-hover: #388e3c;
+  --button-text: #fff;
+}
+
+[data-theme='dark'] {
+  --snake-head: #00e676;
+  --snake-body: #00796b;
+  --food-color: #ff5252;
+  --canvas-bg: #222;
+  --text-color: #fff;
+  --button-bg: #388e3c;
+  --button-hover: #2e7d32;
+  --button-text: #fff;
+}
+
 .snake-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   padding: 20px;
+  gap: 20px;
+  color: var(--text-color);
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .score-board {
-  display: flex;
-  justify-content: space-between;
-  width: 400px;
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.game-canvas {
-  border: 2px solid #555;
-  background: #fff;
-  border-radius: 10px; /* Rounded canvas edges */
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  color: var(--text-color);
 }
 
 .controls {
-  margin-top: 20px;
   display: flex;
-  gap: 15px;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .controls button {
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
-  background-color: #4caf50;
-  color: white;
   border-radius: 6px;
   cursor: pointer;
+  background-color: var(--button-bg);
+  color: var(--button-text);
   transition: background-color 0.3s ease;
 }
 
 .controls button:hover {
-  background-color: #388e3c;
+  background-color: var(--button-hover);
+}
+
+.game-canvas {
+  border: 2px solid #555;
+  border-radius: 10px;
+  background-color: var(--canvas-bg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .game-over {
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 10px 20px;
-  background-color: #ff4d4d;
+  background-color: var(--food-color);
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 8px;
   animation: fadeIn 0.5s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes fadeIn {
@@ -67,8 +97,15 @@
   }
 }
 
-/* Make snake segments curved using canvas context */
-canvas.snake-rounded rect {
-  border-radius: 4px;
-  overflow: hidden;
+@media (max-width: 600px) {
+  .score-board {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
 }

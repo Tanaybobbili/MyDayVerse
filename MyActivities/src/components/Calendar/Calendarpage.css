@@ -1,75 +1,72 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #e0e0e0;
-}
-
 .page-container {
   display: flex;
+  flex-wrap: wrap;
   min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
   gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(to right, #dbeafe, #f0fdfa);
 }
 
-.calendar-section {
-  flex: 1;
-  max-width: 50%;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Light mode containers */
+.calendar-section,
 .activity-section {
-  flex: 1;
-  max-width: 50%;
-  background-color: #ffffff;
+  flex: 1 1 300px;
+  max-width: 600px;
+  background-color: #f8fafc;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  color: #1f2937;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+/* Inputs */
 .activity-input,
 .time-input {
   width: 100%;
   margin: 10px 0;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
   box-sizing: border-box;
+  background-color: #fff;
+  color: #1e293b;
 }
 
+/* Button */
 .activity-button {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 1rem;
-  background-color: #0077ff;
+  background-color: #3b82f6;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .activity-button:hover {
-  background-color: #005fcc;
+  background-color: #2563eb;
 }
 
+/* Scheduled Activity List */
 .activity-list {
   margin-top: 20px;
 }
-
 .activity-list ul {
   padding-left: 20px;
   list-style-type: disc;
 }
-
 .activity-list li {
   margin-bottom: 10px;
+  color: #1e293b;
 }
+
+/* Minor spacing */
 .activity-section p,
 .activity-section label,
 .activity-section input,
@@ -78,4 +75,89 @@ body {
   margin-top: 12px;
 }
 
+/* ======================= DARK MODE ======================= */
+body.dark-mode .page-container {
+  background: linear-gradient(to right, #1f2937, #111827);
+}
 
+body.dark-mode .calendar-section,
+body.dark-mode .activity-section {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .activity-input,
+body.dark-mode .time-input {
+  background-color: #111827;
+  border: 1px solid #374151;
+  color: #f1f5f9;
+}
+body.dark-mode .activity-input::placeholder,
+body.dark-mode .time-input::placeholder {
+  color: #9ca3af;
+}
+
+body.dark-mode .activity-button {
+  background-color: #2563eb;
+  color: #f9fafb;
+}
+body.dark-mode .activity-button:hover {
+  background-color: #1d4ed8;
+}
+body.dark-mode .activity-list li {
+  color: #e5e7eb;
+}
+
+/* ======================= RESPONSIVE ======================= */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .calendar-section,
+  .activity-section {
+    width: 100%;
+    max-width: 95%;
+  }
+}
+
+/* ========== DARK MODE for react-calendar ========== */
+body.dark-mode .react-calendar {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .react-calendar__tile {
+  background: transparent;
+  color: #f1f5f9;
+}
+
+body.dark-mode .react-calendar__tile--now {
+  background: #2563eb;
+  color: white;
+}
+
+body.dark-mode .react-calendar__tile--active {
+  background: #10b981;
+  color: white;
+}
+
+body.dark-mode .react-calendar__navigation {
+  background: transparent;
+}
+body.dark-mode .react-calendar__navigation button {
+  color: #f1f5f9;
+  font-weight: bold;
+}
+body.dark-mode .react-calendar__month-view__weekdays {
+  color: #94a3b8;
+}
+body.dark-mode .react-calendar__tile:enabled:hover {
+  background-color: #334155;
+  color: #e0f2fe;
+}

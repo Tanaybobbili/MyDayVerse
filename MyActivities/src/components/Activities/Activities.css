@@ -1,30 +1,32 @@
 .activities-main {
   padding: 30px 20px;
-  background: linear-gradient(to right, #f1f1f1, #e2e6ea);
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #dbeafe, #f0fdfa);
+  transition: background-color 0.3s;
 }
 
 .activities-container {
   max-width: 800px;
   margin: 0 auto;
-  background: white;
+  background: #f8fafc;
   padding: 25px 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .activities-container h1 {
   font-size: 28px;
   margin-bottom: 20px;
   text-align: center;
-  color: #2c3e50;
+  color: #1f2937;
 }
 
 .live-clock {
   text-align: center;
   font-size: 18px;
-  color: #444;
+  color: #334155;
   margin-bottom: 20px;
 }
 
@@ -33,15 +35,17 @@
   margin: 0 auto 20px auto;
   padding: 10px 15px;
   font-size: 16px;
-  border: 2px solid #ccc;
+  border: 2px solid #cbd5e1;
   border-radius: 8px;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #ffffff;
+  color: #1e293b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .reset-button {
-  background-color: #ff4d4d;
+  background-color: #ef4444;
   color: white;
   padding: 10px 20px;
   font-size: 16px;
@@ -52,9 +56,8 @@
   display: block;
   transition: background-color 0.3s ease;
 }
-
 .reset-button:hover {
-  background-color: #e60000;
+  background-color: #dc2626;
 }
 
 .activities-list {
@@ -64,9 +67,9 @@
 }
 
 .activity-card {
-  background-color: #fefefe;
+  background-color: #ffffff;
   padding: 15px 20px;
-  border-left: 5px solid #4e73df;
+  border-left: 5px solid #3b82f6;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -78,11 +81,11 @@
 .activity-info p {
   margin: 5px 0;
   font-size: 15px;
-  color: #333;
+  color: #1e293b;
 }
 
 .delete-button {
-  background-color: #dc3545;
+  background-color: #dc2626;
   color: white;
   padding: 8px 14px;
   font-size: 14px;
@@ -92,14 +95,66 @@
   transition: background-color 0.3s ease;
   margin-top: 10px;
 }
-
 .delete-button:hover {
-  background-color: #c82333;
+  background-color: #b91c1c;
 }
 
 .no-activities {
   text-align: center;
   font-size: 18px;
-  color: #888;
+  color: #64748b;
   margin-top: 40px;
+}
+
+/* =================== DARK MODE =================== */
+body.dark-mode .activities-main {
+  background: linear-gradient(to right, #1f2937, #0f172a);
+}
+
+body.dark-mode .activities-container {
+  background: #1e293b;
+  color: #f1f5f9;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .activities-container h1 {
+  color: #f1f5f9;
+}
+
+body.dark-mode .live-clock {
+  color: #cbd5e1;
+}
+
+body.dark-mode .activities-search {
+  background-color: #111827;
+  border: 2px solid #334155;
+  color: #f1f5f9;
+}
+
+body.dark-mode .reset-button {
+  background-color: #ef4444;
+}
+body.dark-mode .reset-button:hover {
+  background-color: #dc2626;
+}
+
+body.dark-mode .activity-card {
+  background-color: #0f172a;
+  border-left: 5px solid #60a5fa;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.04);
+}
+
+body.dark-mode .activity-info p {
+  color: #e2e8f0;
+}
+
+body.dark-mode .delete-button {
+  background-color: #ef4444;
+}
+body.dark-mode .delete-button:hover {
+  background-color: #dc2626;
+}
+
+body.dark-mode .no-activities {
+  color: #94a3b8;
 }

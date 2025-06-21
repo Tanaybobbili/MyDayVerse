@@ -1,60 +1,128 @@
+:root {
+  --bg-light: #f9f9f9;
+  --bg-dark: #1a1a1a;
+  --text-light: #222;
+  --text-dark: #eee;
+  --card-bg-light: #fff;
+  --card-bg-dark: #2a2a2a;
+  --border-light: #ccc;
+  --border-dark: #444;
+  --card-flipped-bg-light: #e0e0e0;
+  --card-flipped-bg-dark: #3a3a3a;
+  --btn-bg: #4e73df;
+  --btn-hover: #3756c0;
+}
+
 .memory-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #111827; /* dark bg */
+  color: var(--text-dark);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.memory-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #cbd5e1;
 }
 
 .memory-grid {
   display: grid;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-/* New class for larger grid layout with 5 columns (10 pairs) */
-.memory-grid.large {
-  grid-template-columns: repeat(5, 80px);
+  gap: 10px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
 }
 
 .memory-card {
-  width: 80px;
-  height: 80px;
-  background-color: #ffffff;
-  border: 2px solid #666;
-  font-size: 32px;
-  text-align: center;
-  line-height: 80px;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--card-bg-light);
+  border: 2px solid var(--border-light);
+  border-radius: 8px;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
-  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .memory-card.flipped {
-  background-color: #f9f9f9;
+  background-color: var(--card-flipped-bg-light);
+  transform: scale(1.05);
 }
 
-.memory-restart {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #4e73df;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+[data-theme='dark'] .memory-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
 }
 
-/* Grouping restart and new game buttons */
+[data-theme='dark'] .memory-card.flipped {
+  background-color: var(--card-flipped-bg-dark);
+}
+
 .button-group {
   display: flex;
   gap: 10px;
-  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* Scoreboard display */
-.scoreboard {
-  display: flex;
-  gap: 30px;
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: bold;
+.button-group button {
+  padding: 10px 20px;
+  background-color: var(--btn-bg);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .memory-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .scoreboard {
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 1rem;
+  }
+
+  .memory-grid {
+    gap: 6px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .button-group button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
 }

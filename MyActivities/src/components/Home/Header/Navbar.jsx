@@ -14,6 +14,15 @@ function Navbar() {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const closeSidebar = () => setIsSidebarOpen(false);
 
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -66,15 +75,6 @@ function Navbar() {
     }
     clearOne(index);
   };
-
-  const [isDark, setIsDark] = useState(
-    () => localStorage.getItem('theme') === 'dark'
-  );
-
-  useEffect(() => {
-    document.body.classList.toggle('dark-mode', isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
 
   return (
     <>

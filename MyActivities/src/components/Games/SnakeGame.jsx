@@ -71,23 +71,33 @@ function SnakeGame() {
 
   useEffect(() => {
     const ctx = canvasRef.current.getContext('2d');
-    if (isPaused || isGameOver || (direction.x === 0 && direction.y === 0)) {
-      ctx.fillStyle = '#f1f1f1';
+    const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+
+    const bgColor = theme === 'dark' ? '#1a1a1a' : '#f5f5f5';
+    const headColor = theme === 'dark' ? '#32ff7e' : '#008000';
+    const bodyColor = theme === 'dark' ? '#158a6c' : '#004d00';
+    const foodColor = theme === 'dark' ? '#ff4b4b' : '#ff0000';
+
+    const draw = () => {
+      ctx.fillStyle = bgColor;
       ctx.fillRect(0, 0, canvasSize, canvasSize);
 
       if (snake.length > 0) {
-        ctx.fillStyle = '#31ff13';
+        ctx.fillStyle = headColor;
         ctx.fillRect(snake[0].x * scale, snake[0].y * scale, scale, scale);
 
-        ctx.fillStyle = '#1c4b52';
+        ctx.fillStyle = bodyColor;
         snake.slice(1).forEach(segment => {
           ctx.fillRect(segment.x * scale, segment.y * scale, scale, scale);
         });
 
-        ctx.fillStyle = '#ff0000';
+        ctx.fillStyle = foodColor;
         ctx.fillRect(food.x * scale, food.y * scale, scale, scale);
       }
+    };
 
+    if (isPaused || isGameOver || (direction.x === 0 && direction.y === 0)) {
+      draw();
       return;
     }
 
@@ -127,20 +137,7 @@ function SnakeGame() {
       }
 
       setSnake(newSnake);
-
-      ctx.fillStyle = '#f1f1f1';
-      ctx.fillRect(0, 0, canvasSize, canvasSize);
-
-      ctx.fillStyle = '#31ff13';
-      ctx.fillRect(newSnake[0].x * scale, newSnake[0].y * scale, scale, scale);
-
-      ctx.fillStyle = '#1c4b52';
-      newSnake.slice(1).forEach(segment => {
-        ctx.fillRect(segment.x * scale, segment.y * scale, scale, scale);
-      });
-
-      ctx.fillStyle = '#ff0000';
-      ctx.fillRect(food.x * scale, food.y * scale, scale, scale);
+      draw();
     }, 150);
 
     return () => clearInterval(interval);
@@ -153,35 +150,30 @@ function SnakeGame() {
     }
   }, []);
 
-  const handlePauseResume = () => setIsPaused(!isPaused);
-
-  const handleNewGame = () => {
-    initSnakeAndFood();
-  };
-
-  const handleResetHighScore = () => {
-    setItem('highScore', 0);
-    setHighScore(0);
-  };
-
   return (
     <div className="snake-container">
-      <div className="score-board">
-        <span>Score: {score}</span>
-        <span>High Score: {highScore}</span>
-      </div>
       <canvas
         ref={canvasRef}
         width={canvasSize}
         height={canvasSize}
         className="game-canvas"
       />
-      {isGameOver && <div className="game-over">Game Over</div>}
-      <div className="controls">
-        <button onClick={handlePauseResume}>{isPaused ? 'Resume' : 'Pause'}</button>
-        <button onClick={handleNewGame}>New Game</button>
-        <button onClick={handleResetHighScore}>Reset High Score</button>
+      <div className="side-panel">
+        <div className="score-board">
+          <span>Score: {score}</span>
+          <span>High Score: {highScore}</span>
+        </div>
+        <div className="controls">
+          <button onClick={() => setIsPaused(p => !p)}>
+            {isPaused ? 'Resume' : 'Pause'}
+          </button>
+          <button onClick={initSnakeAndFood}>New Game</button>
+          <button onClick={() => { setHighScore(0); setItem('highScore', 0); }}>
+            Reset High Score
+          </button>
+        </div>
       </div>
+      {isGameOver && <div className="game-over">Game Over</div>}
     </div>
   );
 }

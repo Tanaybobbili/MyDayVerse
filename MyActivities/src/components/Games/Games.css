@@ -1,16 +1,24 @@
 .games-container {
-  padding: 30px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #dfe9f3, #ffffff);
+}
+
+.games-container h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
 }
 
 .game-selection {
   margin-bottom: 20px;
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
 }
 
 .game-selection button {
@@ -28,29 +36,53 @@
   background-color: #2e59d9;
 }
 
-.game-screen {
-  width: 95%;
-  max-width: 1200px;
-  height: 650px;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #ccc;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #fff;
+.game-selection button.active {
+  background-color: #1a3faa;
 }
 
-.game-play {
-  flex: 1;
+.game-screen {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
+}
+
+.game-placeholder {
+  padding: 50px;
+  font-size: 18px;
+  color: #888;
+  text-align: center;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .game-commands {
   background-color: #f1f1f1;
-  padding: 15px;
+  padding: 15px 20px;
   font-size: 14px;
   text-align: center;
-  border-top: 1px solid #ccc;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  max-width: 600px;
+  width: 90%;
+  color: #333;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .game-selection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-commands {
+    font-size: 13px;
+  }
+}
+body.dark-mode .game-screen .game-commands{
+  background-color:black;
 }
