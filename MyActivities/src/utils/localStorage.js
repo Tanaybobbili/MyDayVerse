@@ -33,5 +33,5 @@ if (!getItem('memoryGameBestScore')) {
 
 
 if (!localStorage.getItem('theme')) {
-  localStorage.setItem('theme', 'light');
+  localStorage.setItem('theme', 'dark');
 }

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import { getItem, setItem } from '../../../utils/localStorage.js';
 import { Bell } from 'lucide-react';
+import './Navbar.css';
 
 function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -79,22 +80,21 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        {!isSidebarOpen && (
-          <div className="hamburger" onClick={toggleSidebar}>
-            &#9776;
-          </div>
-        )}
+        <div className="hamburger" onClick={toggleSidebar}>
+          &#9776;
+        </div>
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} navigate={navigate} />
 
-        <button className="homebutton" onClick={() => navigate('/')}>Home</button>
-        <button className="calendar-button" onClick={() => navigate('/mycalendar')}>Calendar</button>
-        <button className="activities-page-button" onClick={() => navigate('/myactivities')}>Activities</button>
-        <button className="gamesbutton" onClick={() => navigate('/games')}>Games</button>
-        <button className="moviesbutton" onClick={() => navigate('/movies')}>Movies</button>
-        <button className="newsbutton" onClick={() => navigate('/news')}>News</button>
+        <div className="nav-buttons">
+          <button className="nav-btn" onClick={() => navigate('/')}>Home</button>
+          <button className="nav-btn" onClick={() => navigate('/mycalendar')}>Calendar</button>
+          <button className="nav-btn" onClick={() => navigate('/myactivities')}>Activities</button>
+          <button className="nav-btn" onClick={() => navigate('/games')}>Games</button>
+          <button className="nav-btn" onClick={() => navigate('/movies')}>Movies</button>
+          <button className="nav-btn" onClick={() => navigate('/news')}>News</button>
 
-        <div className="notification-container">
           <button
-            className={`notificationsbutton ${notifications.length > 0 ? 'pulse' : ''}`}
+            className={`nav-btn notificationsbutton ${notifications.length > 0 ? 'pulse' : ''}`}
             onClick={() => setIsPopupOpen(!isPopupOpen)}
           >
             <Bell size={20} />
@@ -103,11 +103,11 @@ function Navbar() {
               <span className="notification-badge">{notifications.length}</span>
             )}
           </button>
-        </div>
 
-        <button className="theme-toggle" onClick={() => setIsDark(!isDark)}>
-          {isDark ? 'Light Mode' : 'Dark Mode'}
-        </button>
+          <button className="nav-btn" onClick={() => setIsDark(!isDark)}>
+            {isDark ? 'Light Mode' : 'Dark Mode'}
+          </button>
+        </div>
       </div>
 
       {isPopupOpen && (
@@ -137,7 +137,7 @@ function Navbar() {
         </div>
       )}
 
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} navigate={navigate} />
+      
     </>
   );
 }

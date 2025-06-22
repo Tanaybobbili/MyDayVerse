@@ -1,4 +1,4 @@
-/* Reset and base layout */
+/* ========== RESET & BASE LAYOUT ========== */
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +11,16 @@ html, body {
   width: 100%;
 }
 body {
-  padding: 0px;
-  margin: 0px;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
   background: linear-gradient(to right, #dbeafe, #f0fdfa);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
-  background-color: #000;
   background-attachment: fixed;
 }
+
+/* Small screen optimization */
 @media (max-width: 600px) {
   body {
     background-position: top center;
@@ -30,121 +30,29 @@ body {
   }
 }
 
-/* ========== NAVBAR ========== */
-.navbar {
-  margin: 0;
-  border: 2px solid rgba(0, 0, 0, 0.841);
-  width: 100%;
-  height: 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 10px;
-  padding-left: 10px;
-  position: relative;
-  gap: 10px;
-  background-color: #004D61;
-  overflow: hidden;
-}
-.navbar button {
-  flex-shrink: 0;
-  flex: 1 1 0;
-  padding: 0 5px;
-  height: 90%;
-  background-color: #b1fc83;
-  font-weight: bold;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-.navbar .hamburger {
-  font-size: 2.25rem;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  color: white;
-  background: none;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: -1px;
-  left: -2px;
-  padding: 0;
-}
-
-/* Page route buttons */
-.calendar-button,
-.gamesbutton,
-.moviesbutton,
-.newsbutton,
-.homebutton,
-.activities-page-button {
-  height: 90%;
-  padding: 0 8px;
-  flex: 0 0 auto;
-}
-.homebutton,
-.calendar-button,
-.activities-page-button,
-.gamesbutton,
-.moviesbutton,
-.newsbutton,
-.notificationsbutton {
-  flex: 1 1 0;
-}
-
-/* ========== RESPONSIVE NAVBAR ========== */
-@media (max-width: 900px) {
-  .homebutton,
-  .activities-page-button {
-    width: 25%;
-  }
-  .notificationsbutton {
-    width: 10%;
-  }
-}
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    align-items: stretch;
-    gap: 0px;
-  }
-  .navbar .hamburger {
-    font-size: 1rem;
-    align-self: flex-start;
-    margin-bottom: 0.5rem;
-  }
-
-  .homebutton,
-  .activities-page-button,
-  .calendar-button,
-  .gamesbutton,
-  .moviesbutton,
-  .newsbutton {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-}
-
 /* ========== NOTIFICATIONS ========== */
 .notification-container {
   display: flex;
   align-items: center;
-  background-color: #000;
+  background-color: transparent;
   height: 90%;
 }
 .notificationsbutton {
-  background-color: #000;
-  height: 90%;
-  flex: 1 1 0;
-  padding: 0 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border-radius: 8px;
+  padding: 0 8px;
   font-weight: bold;
   font-size: 1rem;
   white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.notificationsbutton:hover {
+  background-color: #bae6fd;
+  color: #0c4a6e;
 }
 .notification-text {
   margin-left: 4px;
@@ -200,7 +108,6 @@ body {
   color: white;
   font-size: 0.95rem;
   width: 100%;
-  box-sizing: border-box;
 }
 .notification-item span {
   flex-grow: 1;
@@ -239,41 +146,20 @@ body {
     top: 70px;
   }
 }
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-  }
-}
-.notificationsbutton.pulse {
-  animation: pulse 2s infinite;
-}
 
-/* ========== ELEGANT DARK MODE ========== */
+/* ========== DARK MODE ENHANCED ========== */
 body.dark-mode {
-  background: linear-gradient(to right, #1f2937, #111827); /* Elegant dark blue-grey */
-  color: #f3f4f6; /* Light text */
-}
-
-body.dark-mode .navbar {
-  background-color: #1e293b; /* Deep blue-gray */
-  border-color: #334155;
-}
-
-body.dark-mode .navbar button {
-  background-color: #475569; /* Slate gray */
-  color: #f8fafc;
-  border: none;
+  background: linear-gradient(to right, #1f2937, #111827);
+  color: #f3f4f6;
 }
 
 body.dark-mode .notificationsbutton {
   background-color: #334155;
-  color: #e2e8f0;
+  color: #93c5fd;
+}
+body.dark-mode .notificationsbutton:hover {
+  background-color: #1e40af;
+  color: #ffffff;
 }
 
 body.dark-mode .notification-popup {
@@ -282,34 +168,26 @@ body.dark-mode .notification-popup {
   color: #e2e8f0;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
-
 body.dark-mode .notification-item {
   color: #f1f5f9;
 }
-
 body.dark-mode .notification-item button {
   background-color: #64748b;
   color: #fff;
 }
-
 body.dark-mode .notification-item button:hover {
   background-color: #94a3b8;
 }
-
 body.dark-mode .notification-item.expired {
-  background-color: #b91c1c; /* Rich red */
+  background-color: #b91c1c;
 }
-
 body.dark-mode .notification-item.active {
-  background-color: #10b981; /* Emerald green */
+  background-color: #10b981;
 }
-
 body.dark-mode .clear-all {
   color: #f87171;
 }
-
-/* ========== DARK MODE TEXT OVERRIDES ========== */
-body.dark-mode, 
+body.dark-mode,
 body.dark-mode p,
 body.dark-mode h1,
 body.dark-mode h2,
@@ -326,19 +204,16 @@ body.dark-mode input,
 body.dark-mode textarea,
 body.dark-mode select,
 body.dark-mode small {
-  color: #e5e7eb !important; /* Soft off-white for readability */
+  color: #e5e7eb !important;
   font-family: 'Segoe UI', 'Roboto', sans-serif !important;
 }
-
 body.dark-mode a {
-  color: #60a5fa !important; /* Light blue for links */
+  color: #60a5fa !important;
   text-decoration: underline;
 }
-
 body.dark-mode a:hover {
   color: #3b82f6 !important;
 }
-
 body.dark-mode input,
 body.dark-mode textarea,
 body.dark-mode select {
@@ -346,9 +221,23 @@ body.dark-mode select {
   border: 1px solid #475569;
   color: #f1f5f9;
 }
-
 body.dark-mode input::placeholder,
 body.dark-mode textarea::placeholder {
   color: #9ca3af;
 }
 
+/* ========== NOTIFICATION PULSE ========== */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+.notificationsbutton.pulse {
+  animation: pulse 2s infinite;
+}

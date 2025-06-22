@@ -23,12 +23,43 @@ function Home() {
         <p className="clock-time">{time.toLocaleTimeString()}</p>
       </div>
 
-      <h2 className="dashboard-title">Your Daily Dashboard</h2>
+      <h2 className="dashboard-title">Dashboard</h2>
 
       <div className="dashboard-widgets">
-        <div className="widget stats-widget">
-          <h3>Quick Stats</h3>
-          <p><strong>Total Activities:</strong> {activities.length}</p>
+        <div className="glass widget blue scale-in delay-1">
+          <h3>Pages Available</h3>
+          <ul>
+            <li>📰 News</li>
+            <li>🎬 Movies</li>
+            <li>📆 Calendar</li>
+            <li>🔔 Notifications</li>
+          </ul>
+        </div>
+
+        <div className="glass widget green scale-in delay-2">
+          <h3>Available Games</h3>
+          <ul>
+            <li>🐍 Snake</li>
+            <li>❌⭕ Tic Tac Toe</li>
+            <li>🧠 Memory Match</li>
+          </ul>
+        </div>
+
+        <div className="glass widget purple scale-in delay-3">
+          <h3>How to Create Activity</h3>
+          <ol>
+            <li>Go to 📆 <strong>Calendar</strong></li>
+            <li>Select date and time</li>
+            <li>Enter activity title</li>
+            <li>Click <strong>Set an Activity</strong></li>
+          </ol>
+        </div>
+
+        <div className="glass widget red scale-in delay-4">
+          <h3>Total Activities</h3>
+          <div className="activity-ring">
+            <div className="ring-center">{activities.length}</div>
+          </div>
         </div>
       </div>
     </div>
