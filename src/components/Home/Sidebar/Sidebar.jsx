@@ -16,9 +16,8 @@ function Sidebar({ isOpen, toggleSidebar, navigate }) {
       <ul className="menu-list">
         <li onClick={() => handleNav('/')}>🏠 Home</li>
         <li onClick={() => handleNav('/myactivities')}>🗂 My Activities</li>
-        <li onClick={() => handleNav('/news')}>📰 News</li>
+        <li onClick={() => handleNav('/mycalendar')}>📅 Calendar</li>
         <li onClick={() => handleNav('/games')}>🎮 Games</li>
-        <li onClick={() => handleNav('/movies')}>🎬 Movies</li>
       </ul>
     </div>
   );

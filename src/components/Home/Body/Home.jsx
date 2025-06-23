@@ -29,8 +29,7 @@ function Home() {
         <div className="glass widget blue scale-in delay-1">
           <h3>Pages Available</h3>
           <ul>
-            <li>📰 News</li>
-            <li>🎬 Movies</li>
+            <li>📝 My Activities</li>
             <li>📆 Calendar</li>
             <li>🔔 Notifications</li>
           </ul>

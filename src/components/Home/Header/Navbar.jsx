@@ -90,8 +90,6 @@ function Navbar() {
           <button className="nav-btn" onClick={() => navigate('/mycalendar')}>Calendar</button>
           <button className="nav-btn" onClick={() => navigate('/myactivities')}>Activities</button>
           <button className="nav-btn" onClick={() => navigate('/games')}>Games</button>
-          <button className="nav-btn" onClick={() => navigate('/movies')}>Movies</button>
-          <button className="nav-btn" onClick={() => navigate('/news')}>News</button>
 
           <button
             className={`nav-btn notificationsbutton ${notifications.length > 0 ? 'pulse' : ''}`}
@@ -136,8 +134,6 @@ function Navbar() {
           </div>
         </div>
       )}
-
-      
     </>
   );
 }
