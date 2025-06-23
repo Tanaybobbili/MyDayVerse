@@ -30,7 +30,7 @@ MyDayVerse is a daily planner app that combines productivity and simplicity. It 
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
+###  Clone the Repository
 
 git clone https://github.com/Tanaybobbili/MyDayVerse.git
 cd MyDayVerse
@@ -42,6 +42,8 @@ npm install
 ## Start Development Server
 
 npm run dev
+
+Done
 
 
 🙋‍♂️ Author
