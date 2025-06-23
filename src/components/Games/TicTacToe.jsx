@@ -28,7 +28,6 @@ function TicTacToe() {
   };
 
   useEffect(() => {
-    // Optional: Add keyboard shortcuts like 'r' to restart
     const handleKey = (e) => {
       if (e.key === 'r') restartGame();
     };

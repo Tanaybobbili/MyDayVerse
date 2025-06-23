@@ -1,4 +1,3 @@
-/* Sidebar base styles */
 .sidebar {
   position: fixed;
   top: 0;
@@ -43,7 +42,6 @@
   background-color: #e5e7eb;
 }
 
-/* List menu */
 .menu-list {
   list-style: none;
   padding: 0;
@@ -63,7 +61,6 @@
   background-color: #c7d2fe;
 }
 
-/* Dark mode overrides */
 body.dark-mode .sidebar {
   background-color: #1e293b;
   color: #e2e8f0;

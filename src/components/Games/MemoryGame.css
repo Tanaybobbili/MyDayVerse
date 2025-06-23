@@ -22,7 +22,7 @@
   border-radius: 12px;
   width: 100%;
   max-width: 600px;
-  background-color: #111827; /* dark bg */
+  background-color: #111827; 
   color: var(--text-dark);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -100,7 +100,6 @@
   background-color: var(--btn-hover);
 }
 
-/* Responsive Design */
 @media (max-width: 500px) {
   .memory-container {
     padding: 1rem 0.5rem;

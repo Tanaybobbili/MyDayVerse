@@ -106,7 +106,6 @@
   margin-top: 40px;
 }
 
-/* =================== DARK MODE =================== */
 body.dark-mode .activities-main {
   background: linear-gradient(to right, #1f2937, #0f172a);
 }

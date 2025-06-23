@@ -7,7 +7,6 @@ function Activities() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Live clock
   useEffect(() => {
     const clock = setInterval(() => {
       setCurrentTime(new Date());
@@ -15,7 +14,6 @@ function Activities() {
     return () => clearInterval(clock);
   }, []);
 
-  // Live expiration and notification updates
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
@@ -27,7 +25,6 @@ function Activities() {
         const activityDateTime = new Date(`${activity.date} ${activity.time}`);
         const timeDiff = activityDateTime - now;
 
-        // Add notification if within 1 hour
         if (timeDiff > 0 && timeDiff <= oneHour) {
           const message = `Only 1 hour left for: ${activity.detail}`;
           const exists = updatedNotifications.some(
@@ -41,10 +38,9 @@ function Activities() {
           }
         }
 
-        return activityDateTime > now; // Keep only future events
+        return activityDateTime > now; 
       });
 
-      // Update state and storage only if changed
       if (filtered.length !== activities.length) {
         setActivities(filtered);
         setItem('activities', filtered);

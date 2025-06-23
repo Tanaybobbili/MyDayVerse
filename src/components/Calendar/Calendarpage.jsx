@@ -35,7 +35,6 @@ function Calendarpage() {
     setActivities(updatedActivities);
     setItem('activities', updatedActivities);
 
-    // Add a notification if within 1 hour
     const activityDateTime = new Date(`${newActivity.date} ${newActivity.time}`);
     const now = new Date();
     const oneHour = 60 * 60 * 1000;

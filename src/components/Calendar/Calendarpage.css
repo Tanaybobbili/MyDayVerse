@@ -10,7 +10,6 @@
   background: linear-gradient(to right, #dbeafe, #f0fdfa);
 }
 
-/* Light mode containers */
 .calendar-section,
 .activity-section {
   flex: 1 1 300px;
@@ -23,7 +22,6 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Inputs */
 .activity-input,
 .time-input {
   width: 100%;
@@ -37,7 +35,6 @@
   color: #1e293b;
 }
 
-/* Button */
 .activity-button {
   margin-top: 10px;
   padding: 10px 20px;
@@ -53,7 +50,6 @@
   background-color: #2563eb;
 }
 
-/* Scheduled Activity List */
 .activity-list {
   margin-top: 20px;
 }
@@ -66,7 +62,6 @@
   color: #1e293b;
 }
 
-/* Minor spacing */
 .activity-section p,
 .activity-section label,
 .activity-section input,
@@ -75,7 +70,6 @@
   margin-top: 12px;
 }
 
-/* ======================= DARK MODE ======================= */
 body.dark-mode .page-container {
   background: linear-gradient(to right, #1f2937, #111827);
 }
@@ -109,7 +103,6 @@ body.dark-mode .activity-list li {
   color: #e5e7eb;
 }
 
-/* ======================= RESPONSIVE ======================= */
 @media (max-width: 768px) {
   .page-container {
     flex-direction: column;
@@ -123,7 +116,6 @@ body.dark-mode .activity-list li {
   }
 }
 
-/* ========== DARK MODE for react-calendar ========== */
 body.dark-mode .react-calendar {
   background-color: #1e293b;
   color: #f1f5f9;
