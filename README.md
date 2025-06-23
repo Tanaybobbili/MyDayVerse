@@ -49,4 +49,4 @@ Done
 🙋‍♂️ Author
 Tanay Bobbili
 
-GitHub: @Tanaybobbili
+GitHub: https://github.com/Tanaybobbili
